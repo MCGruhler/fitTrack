@@ -1,0 +1,115 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+.nav{
+    background-color: #5a4dc3;
+    font-family: monospace;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    height: 100vh;
+    width: 15vw;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 7vh;
+}
+
+.nav> a> img{
+    width: 10vw;
+}
+
+#logo{
+    height: 15vh;
+    margin-top: 2vh;
+}
+
+.article{
+    position: fixed;
+    left: 15vw;
+    top: 0;
+    
+    background-color: white;
+    width: 85vw;
+}
+
+.daily, .goal, .cals, .water, .goalDate{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.daily{
+    gap: 3vh;
+    height: 50vh;
+}
+
+.goal img, .cals img, .water img, .calender img, .setGoal img, .setInt img, .setStats img{
+    width: 15vw;
+    filter: invert(28%) sepia(15%) saturate(7190%) hue-rotate(229deg) brightness(98%) contrast(85%);
+    -webkit-filter: invert(28%) sepia(15%) saturate(7190%) hue-rotate(229deg) brightness(98%) contrast(85%);
+}
+.setGoal img, .setInt img, .setStats img{
+    width: 10vw;
+    filter: invert(28%) sepia(15%) saturate(7190%) hue-rotate(229deg) brightness(98%) contrast(85%);
+    -webkit-filter: invert(28%) sepia(15%) saturate(7190%) hue-rotate(229deg) brightness(98%) contrast(85%);
+}
+
+.dayGoals, .date{
+    display: flex;
+    gap: 5vw;
+}
+
+.date{
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10vh;
+}
+
+img{
+    filter: invert(65%) sepia(11%) saturate(262%) hue-rotate(167deg) brightness(96%) contrast(88%);
+    -webkit-filter: invert(65%) sepia(11%) saturate(262%) hue-rotate(167deg) brightness(96%) contrast(88%);
+}
+
+.header{
+    height: 25vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 20vw;
+}
+
+.header > img{
+    width: 10vw;
+    margin-left: 2vw;
+}
+
+.settings{
+ 
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10vh;
+
+}
+.setGoal, .setInt, .setStats{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    gap: 1vw;
+    margin-left: 2vw;
+
+    font-size: 14px;
+}
+ 
+h2{
+    font-size: 18px;
+}
+
+

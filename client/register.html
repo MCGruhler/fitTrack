@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/indexStyle.css">
+    <link rel="stylesheet" href="css/registerStyle.css">
+</head>
+<body>
+    <div class="center">
+        <div class="greetings">
+            <h1>Hello and Welcome to Fit-Track</h1>
+            <h2>Let's Get Started!</h2>
+            <div>Already a user? Login <a href="index.html">here</a>.</div>
+        </div>
+        <div class="registration">
+            <div class="userInfo">
+                <div class="form">
+                    <label for="input" id="input">First Name:</label>
+                    <input class="form-control" name="fName" id="fName">
+                </div>
+                <div class="form">
+                    <label for="input2" id="input2">Last Name:</label>
+                    <input class="form-control" name="lName" id="lName">
+                </div>
+                <div class="form">
+                    <label for="input3" id="input3">Email:</label>
+                    <input class="form-control" name="email" id="email">
+                </div>
+                <div class="form">
+                    <label for="input4" id="input4">Password:</label>
+                    <input class="form-control" name="pword" id="pword">
+                </div>
+            </div>
+            <div class="userStats">
+                <div class="form">
+                    <label for="input5" id="input5">Height:</label>
+                    <input class="form-control" name="htFt" id="htFt" type="number" placeholder="ft" min="4" max="8">
+                    <input class="form-control" name="htIn" id="htIn" type="number" placeholder="in" min="0" max="11" step=".25">
+                </div>
+                <div class="form">
+                    <label for="input6" id="input6">Weight:</label>
+                    <input class="form-control" name="wt" id="wt" type="number" placeholder="Imperial(lbs)" min="70">
+                </div>
+                <div class="form">
+                    <label for="input7" id="input7">Goal Weight:</label>
+                    <input class="form-control" name="gWt" id="gWt" type="number" placeholder="Imperial(lbs)" min="70">
+                </div>
+                <div class="form">
+                    <label for="input8" id="input8">Goal Intensity:</label>
+                    <select name="goalInt" id="goalInt">
+                        <option value="na">Maintenance</option>
+                        <option value="slowly">.5 lb per Week</option>
+                        <option value="slow">1 lbs per Week</option>
+                        <option value="moderately">1.5 lbs per Week</option>
+                        <option value="very">2 lbs per Week</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <form class="button-container" action="home.html"> 
+            <button type="submit">Sumbit</button>
+        </form>
+    </div>
+    <div class="footer">
+        <div>
+            <p>FitTrack &#169;</p>
+            <div>
+                <img src="imgs/facebook.png" alt="">
+                <img src="imgs/instagram.png" alt="">
+                <img src="imgs/twitter.png" alt="">
+            </div>
+        </div>
+        <div>123 Main Street, Middletown, NJ</div>
+        <div>+1(732)-987-6543</div>
+    </div>
+</body>
+</html>

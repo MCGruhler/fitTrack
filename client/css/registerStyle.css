@@ -1,0 +1,93 @@
+.center{
+    width: 90vw;
+    height: 60vh;
+
+    display: block;
+
+    display: flex;
+    gap: 0;
+    justify-content: space-around;
+}
+
+.greetings{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.registration{
+    display: flex;
+    flex-flow: row nowrap;
+
+    gap: 7vw;
+}
+
+.userInfo, .userStats{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 3vh;
+}
+
+.userInfo > .form > input, .userStats > .form > input, .userStats > .form > select{
+    background-color: #aca4e3;
+    border: 0;
+    color: white;
+    border-radius: 250px;
+    height: 30px;
+    width: 20vw;
+}
+
+.userInfo > .form, .userStats > .form{
+    font-size: 25px;
+}
+
+#htFt, #htIn{
+    width: 50px;
+    text-align: center;
+}
+
+#wt, #gWt, .form > select{
+    width: 150px;
+    text-align: center;
+}
+
+@media screen and (max-width: 750px) {
+
+    body{
+        height: 150vh;
+        background-size: auto;
+    }
+    .center{
+        height: 140vh;
+        overflow: scroll;
+    }
+    .registration{
+        display: flex;
+        flex-flow: column nowrap;
+    
+        gap: 7vw;
+    }
+    .form{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        gap: 2vh;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+    h2{
+        font-size: 16px;
+    }
+    .userInfo > .form > input, .userStats > .form > input, .userStats > .form > select{
+
+        width: 70vw;
+    }
+
+    .footer{
+        display: none;
+    }
+
+}

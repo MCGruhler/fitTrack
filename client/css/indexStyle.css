@@ -1,0 +1,180 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+/*image sizing*/
+img{
+    height: 2vh;
+}
+
+body{
+    /*background image and sizing*/
+    width: 100vw;
+    height: 70vh;
+    background-image: url(../imgs/blurBG.jpg);
+    background-size: 101vw 100vh;
+    background-repeat: no-repeat;
+
+    /*getting alignment centered*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.center{
+    /*sizing and color theme*/
+    background-color: #969fa7;
+    color: #465358;
+    width: 40vw;
+    height: 40vh;
+    box-shadow: rgba(90,77,195,.3) 0px 0px 0px 20px;
+
+    
+    /*getting alignment centered & spacing*/
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3vh;
+
+}
+
+.userLogin{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1vh;
+}
+.userLogin > .form-group{
+    font-size: 30px;
+}
+/*styles of text boxes*/
+.userLogin > .form-group > input{
+    background-color: #aca4e3;
+    border: 0;
+    color: white;
+    border-radius: 250px;
+    height: 30px;
+    width: 250px;
+}
+
+#input1{
+    margin-right: 30px;
+}
+#input1, #input2, .form label{
+    font-size: 18px;
+}
+button{
+    /*button sizing*/
+    height: 3vh;
+    width: 300px;
+    border-radius: 5px;
+
+    /*button coloring/theme*/
+    background-color: #5a4dc3;
+    border: 0;
+    font-size: 20px;
+}
+
+/*button hover*/
+button:hover{
+    background-color: #746ac5;
+}
+
+p{
+    font-size: 18px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    left:0;
+
+    color: #969fa7;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(90,77,195,.2);
+}
+
+h1{
+    font-size: 26px;
+}
+
+@media screen and (max-width: 1000px) and (min-width: 701px) {
+    h1{
+        font-size: 22px;
+    }
+    h2{
+        font-size: 20px;
+    }
+
+    p,button{
+        font-size: 13px;
+    }
+
+    .userLogin >.form-group > input, button{
+        width: 20vw;
+    }
+
+    .center{
+        width: 60vw;
+    }
+
+
+  }
+
+@media screen and (max-width: 700px) {
+    .center{
+        width: 80vw;
+    }
+    h1{
+        font-size: 22px;
+    }
+    h1 img{
+        width: 4vw;
+        height: auto;
+    }
+    p{
+        font-size: 12px;
+    }
+    h2{
+        font-size: 20px;
+    }
+
+    #email, #pword{
+        width: 70vw;
+    }
+
+    button{
+        width: 20vw;
+        font-size: 12px;
+    }
+
+    .form-group{
+        display: flex;
+        flex-flow: column nowrap;
+
+        align-items: center;
+
+    }
+
+    .footer{
+        display: none;
+    }
+  }
+
+  @media screen and (max-height: 650px) {
+        body{
+            height: 150vh;
+            overflow: scroll;
+            background-size: auto;
+        }
+        .center{
+
+            background-color: black;
+            justify-content: flex-end;
+        }
+  }
