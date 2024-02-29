@@ -1,0 +1,9 @@
+.container{
+    margin-left: 15vw;
+}
+
+.remainCal > img{
+    width: 6vw;
+    filter: invert(28%) sepia(15%) saturate(7190%) hue-rotate(229deg) brightness(98%) contrast(85%);
+    -webkit-filter: invert(28%) sepia(15%) saturate(7190%) hue-rotate(229deg) brightness(98%) contrast(85%);
+}
