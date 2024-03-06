@@ -1,0 +1,73 @@
+.container{
+    margin-left: 15vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    gap: 2vh;
+    
+}
+.header{
+border-bottom: solid #465358 1px;
+}
+
+
+.header, .subHead{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.subHead {
+    justify-content: center;
+    align-items: center;
+}
+.subHead h2{
+    font-size: 22px;
+}
+table{
+    width: 60vw;
+    font-size: 18px;
+    line-height: 40px;
+}
+table, tr, th,td{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+}
+.tableTitles{
+    background-color: #5a4dc3;
+    color: white;
+}
+
+.exRow{
+    background-color: #aca4e3;
+    color: black;
+}
+
+.exTable{
+    margin-top: 10vh;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.btns{
+    align-self: flex-end;
+}
+
+.btns button{
+    border-radius: 10px;
+}
+
+.exTable img{
+    width: 3vw;
+}
+
+#addBtn:hover{
+    filter: invert(79%) sepia(9%) saturate(2914%) hue-rotate(82deg) brightness(90%) contrast(75%);
+}
+#deleteBtn:hover{
+    background-color: red;
+}
