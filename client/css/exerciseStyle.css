@@ -7,12 +7,26 @@
     gap: 2vh;
     
 }
-.header{
+#header{
 border-bottom: solid #465358 1px;
 }
 
+#header{
+    height: 25vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
-.header, .subHead{
+    gap: 20vw;
+}
+
+#header > img{
+    width: 10vw;
+    margin-left: 2vw;
+}
+
+
+#header, .subHead{
     display: flex;
     flex-flow: row nowrap;
 }
@@ -70,4 +84,33 @@ table, tr, th,td{
 }
 #deleteBtn:hover{
     background-color: red;
+}
+
+@media screen and (max-width: 700px) {
+    .container{
+        margin-left: 0;
+        margin-top: 10vh;
+        gap: 1vh;
+    }
+    #header{
+        display: none;
+    }
+
+    table{
+        width: 80vw;
+    }
+    .exTable{
+        margin-top: 0;
+    }
+    table, tr, th,td{
+        font-size: 14px;
+    }
+    button{
+        width: 15vw;
+        height: 7vh;
+    }
+    .calTable img{
+        width: 7vw;
+    }
+
 }
