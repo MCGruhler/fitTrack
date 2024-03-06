@@ -1,9 +1,78 @@
 .container{
     margin-left: 15vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    gap: 2vh;
+    
 }
-
+.header{
+border-bottom: solid #465358 1px;
+}
 .remainCal > img{
     width: 6vw;
     filter: invert(28%) sepia(15%) saturate(7190%) hue-rotate(229deg) brightness(98%) contrast(85%);
     -webkit-filter: invert(28%) sepia(15%) saturate(7190%) hue-rotate(229deg) brightness(98%) contrast(85%);
+
+}
+
+.header, .remainCal{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.remainCal {
+    justify-content: center;
+    align-items: center;
+}
+.remainCal h2{
+    font-size: 22px;
+}
+table{
+    width: 60vw;
+    font-size: 18px;
+    line-height: 40px;
+}
+table, tr, th,td{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+}
+.tableTitles{
+    background-color: #5a4dc3;
+    color: white;
+}
+
+.foodRow{
+    background-color: #aca4e3;
+    color: black;
+}
+
+.calTable{
+    margin-top: 10vh;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.btns{
+    align-self: flex-end;
+}
+
+.btns button{
+    border-radius: 10px;
+}
+
+.calTable img{
+    width: 3vw;
+}
+
+#addBtn:hover{
+    filter: invert(79%) sepia(9%) saturate(2914%) hue-rotate(82deg) brightness(90%) contrast(75%);
+}
+#deleteBtn:hover{
+    background-color: red;
 }
