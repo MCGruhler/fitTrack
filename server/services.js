@@ -7,10 +7,12 @@ const ObjectId = require("mongodb").ObjectId;
 
 //database var
 const dbURL = "mongodb://localhost:27017/";
-const dbName = "fitTrackDB"; // Database Name
 
 let services = function (app) {
   app.post("/register", function (req, res) {
+    //let search = { email: req.body.email };
+    //console.log(search);
+
     const reviewUserData = {
       fName: req.body.fName,
       lName: req.body.lName,
@@ -22,9 +24,16 @@ let services = function (app) {
       goalInt: req.body.goalInt,
     };
 
-    let restaurantData = [];
+    const userArr = Array.from(Object.values(reviewUserData));
+    const userEmpty = (userInfo) => userInfo != "";
 
     MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
+      if (!userArr.every(userEmpty)) {
+        return res.status(400).send(JSON.stringify({ msg: "err" }));
+      }
+      // if (emailLen.length > 0) {
+      // return res.status(409).send(JSON.stringify({ msg: "err" }));
+      //}
       return client
         .db("fitTrackDB")
         .collection("users")

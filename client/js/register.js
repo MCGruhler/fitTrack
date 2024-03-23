@@ -1,16 +1,12 @@
 $("#registerSub").click(function () {
   let fName = $("#fName").val();
-  console.log(fName);
   let lName = $("#lName").val();
   let email = $("#email").val();
   let pWord = $("#pword").val();
   let height = $("#htFt").val() + "'" + $("#htIn").val() + '"';
-  console.log(height);
   let startingWeight = $("#wt").val();
   let goalWeight = $("#gWt").val();
   let goalInt = $("#goalInt").val();
-
-  console.log("i worked");
 
   clickRegister(
     fName,
@@ -34,9 +30,10 @@ function clickRegister(
   goalWeight,
   goalInt
 ) {
+  console.log("before ajax call");
   $.ajax({
     url: "http://localhost:3000/register",
-    type: "post",
+    type: "POST",
     data: {
       fName: fName,
       lName: lName,
@@ -47,12 +44,18 @@ function clickRegister(
       goalWeight: goalWeight,
       goalInt: goalInt,
     },
-    success: function (response) {
-      let data = JSON.parse(response);
-      console.log(data);
+    success: function (res) {
+      console.log(res.msg);
+      window.location.href = "/home";
     },
-    error: function (response) {
-      console.log("error");
+    error: function (res) {
+      if (res.status == 400) {
+        alert("All fields are required");
+      }
+      if (res.status == 409) {
+        alert("You Already have an Account");
+      }
+      console.log(res.status);
     },
   });
 }
