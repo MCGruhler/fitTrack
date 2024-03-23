@@ -22,7 +22,6 @@ let services = function (app) {
       goalInt: req.body.goalInt,
     };
 
-    let restaurantData = [];
 
     MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
       return client
