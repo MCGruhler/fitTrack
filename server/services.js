@@ -34,10 +34,8 @@ let services = function (app) {
       // if (emailLen.length > 0) {
       // return res.status(409).send(JSON.stringify({ msg: "err" }));
       //}
-      return client
-        .db("fitTrackDB")
-        .collection("users")
-        .insertOne(reviewUserData);
+      client.db("fitTrackDB").collection("users").insertOne(reviewUserData);
+      return res.status(200).send(JSON.stringify({ msg: "success" }));
     });
   });
 };
