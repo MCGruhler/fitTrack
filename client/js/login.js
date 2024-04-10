@@ -16,6 +16,7 @@ function clickLogIn(email, pWord) {
     },
     success: function (res) {
       console.log(res.msg);
+      sessionStorage.setItem("email", email);
       window.location.href = "/home";
     },
     error: function (res) {
