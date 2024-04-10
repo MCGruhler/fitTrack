@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/client/css/userStyle.css">
+    <link rel="stylesheet" href="">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/client/js/login.js" async></script>
+    <script src="/client/js/register.js" async></script>
+    <script src="/client/js/home.js" async></script>
 </head>
 <body>
     
@@ -17,11 +23,11 @@
 
     <div class="article">
         <div class="daily">
-            <h1>Welcome User! Your Goals are:</h1>
+            <h1 id="welcomeMsg">Welcome User! Your Goals are:</h1>
             <div class="dayGoals">
                 <div class="goal">
                     <img src="/client/imgs/weight-scale.png" alt="">
-                    <h2>Lose X Pounds</h2>
+                    <h2 id="wtMsg">Lose X Pounds</h2>
                 </div>
                 <div class="cals">
                     <img src="/client/imgs/knife-and-fork-silhouette-variants.png" alt="">
