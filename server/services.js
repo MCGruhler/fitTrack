@@ -99,6 +99,23 @@ let services = function (app) {
       });
     });
   });
+  //getter for home
+  app.get("/getHome", function (req, res) {
+    let userEmail = req.query.email;
+    MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
+      async function getUser() {
+        try {
+          const user = await client
+            .db("fitTrackDB")
+            .collection("users")
+            .findOne({ email: userEmail });
+          console.log(user);
+          return res.status(200).send(JSON.stringify({ msg: "success", user }));
+        } catch (error) {}
+      }
+      getUser();
+    });
+  });
 };
 
 module.exports = services;
