@@ -3,10 +3,14 @@ $("#registerSub").click(function () {
   let lName = $("#lName").val();
   let email = $("#email").val();
   let pWord = $("#pword").val();
-  let height = $("#htFt").val() + "'" + $("#htIn").val() + '"';
+  let height = $("#htFt").val() + "'" + $("#htIn").val();
   let startingWeight = $("#wt").val();
   let goalWeight = $("#gWt").val();
   let goalInt = $("#goalInt").val();
+  let age = $("#age").val();
+  let sex = $("#sex").val();
+
+  console.log("in the click func pt 2");
 
   clickRegister(
     fName,
@@ -16,9 +20,13 @@ $("#registerSub").click(function () {
     height,
     startingWeight,
     goalWeight,
-    goalInt
+    goalInt,
+    age,
+    sex
   );
 });
+
+console.log("in js, outside the func pt 1");
 
 function clickRegister(
   fName,
@@ -28,9 +36,11 @@ function clickRegister(
   height,
   startingWeight,
   goalWeight,
-  goalInt
+  goalInt,
+  age,
+  sex
 ) {
-  console.log("before ajax call");
+  console.log("before ajax call pt 3");
   $.ajax({
     url: "http://localhost:3000/register",
     type: "POST",
@@ -43,6 +53,8 @@ function clickRegister(
       startingWeight: startingWeight,
       goalWeight: goalWeight,
       goalInt: goalInt,
+      age: age,
+      sex: sex,
     },
     success: function (res) {
       console.log(res.msg);
