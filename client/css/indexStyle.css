@@ -67,7 +67,7 @@ input::placeholder{
     text-align: center;
     font-weight: bolder;
 }
-button{
+button, #registerSub{
     /*button sizing*/
     height: 3vh;
     width: 300px;
@@ -80,7 +80,7 @@ button{
 }
 
 /*button hover*/
-button:hover{
+button:hover, #registerSub:hover{
     background-color: #746ac5;
 }
 
@@ -114,11 +114,11 @@ h1{
         font-size: 20px;
     }
 
-    p,button{
+    p,button, #registerSub{
         font-size: 13px;
     }
 
-    .userLogin >.form-group > input, button{
+    .userLogin >.form-group > input, button, #registerSub{
         width: 20vw;
     }
 
@@ -151,7 +151,7 @@ h1{
         width: 70vw;
     }
 
-    button{
+    button, #registerSub{
         width: 20vw;
         font-size: 12px;
     }

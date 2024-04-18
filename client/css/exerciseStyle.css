@@ -10,6 +10,15 @@
 #header{
 border-bottom: solid #465358 1px;
 }
+.dateDiv{
+    margin-top: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#exDate{
+    width: 30vw;
+}
 
 #header{
     height: 25vh;
@@ -54,13 +63,13 @@ table, tr, th,td{
     color: white;
 }
 
-.exRow{
+#exTBody{
     background-color: #aca4e3;
     color: black;
 }
 
 .exTable{
-    margin-top: 10vh;
+    margin-top: 6vh;
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -82,8 +91,33 @@ table, tr, th,td{
 #addBtn:hover{
     filter: invert(79%) sepia(9%) saturate(2914%) hue-rotate(82deg) brightness(90%) contrast(75%);
 }
-#deleteBtn:hover{
-    background-color: red;
+
+#exerciseInput{
+    width: 60vw;
+    height: 3vh;
+    justify-content: center;
+}
+#exerciseInput > input{
+    width: 10vw;
+}
+
+#delete > img{
+    width: 1vw;
+}
+
+#delete{
+    border: none;
+    background-color: white;
+}
+
+.inBtns{
+    display: flex;
+    gap: 1vw;
+}
+#addBtn > img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 700px) {
@@ -117,6 +151,36 @@ table, tr, th,td{
     }
     .calTable img{
         width: 7vw;
+    }
+
+    #exerciseInput{
+        margin-top: 15vh;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #exerciseInput > input{
+        width: 40vw;
+    }
+
+    #delete > img{
+        width: 2vw;
+    }
+
+    .inBtns{
+        flex-direction: row;
+    }
+    .inBtns,#addBtn {
+        width: 10vw;
+
+    }
+    .inBtns >img, #addBtn > img{
+        width: 4vw;
+    }
+    #addBtn, #newExercise {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
     }
 
 }
