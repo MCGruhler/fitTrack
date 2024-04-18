@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="/client/css/userStyle.css">
     <link rel="stylesheet" href="/client/css/exerciseStyle.css">
 
-    <script src="js/exDiet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/client/js/login.js" async></script>
+    <script src="/client/js/register.js" async></script>
+    <script src="/client/js/exercise.js" async></script>
 </head>
 <body>
     <div class="nav">
@@ -23,8 +26,9 @@
             <h1>Exercise</h1>
         </div>
         <div class="subHead">
-            <h2>4 Activites Done Today</h2>
+            <h2 id="totalExHeader">4 Activites Done Today</h2>
         </div>
+        <div class="dateDiv"><input type="date" id="exDate"></div>
         <div class="exTable">
             <table class="exInput">
                 <tr class="tableTitles">
@@ -34,38 +38,26 @@
                     <th>Reps</th>
                     <th>Weight</th>
                 </tr>
-                <tr class="exRow">
-                    <td>Walk for 30 mins</td>
-                    <td>Legs</td>
-                    <td>1</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                </tr>
-                <tr class="exRow">
-                    <td>Preacher Curl</td>
-                    <td>Bicep</td>
-                    <td>3</td>
-                    <td>12</td>
-                    <td>50 pounds</td>
-                </tr>
-                <tr class="exRow">
-                    <td>Lat Pulldowns</td>
-                    <td>Back</td>
-                    <td>4</td>
-                    <td>12</td>
-                    <td>115 pounds</td>
-                </tr>
-                <tr class="exRow">
-                    <td>Hammer Curl</td>
-                    <td>Bicep</td>
-                    <td>2</td>
-                    <td>8</td>
-                    <td>20 pounds</td>
-                </tr>
+                <tbody id="exTBody"></tbody>
             </table>
+            <div class="input" id="exerciseInput" style="display: none;">
+                <label for="input1" id="input1"></label>
+                    <input name="type" id="type"  placeholder="Type" required>
+                <label for="input2" id="input2"></label>
+                    <input name="musc" id="musc"  placeholder="Muscle" required>
+                <label for="input3" id="input3"></label>
+                    <input name="sets" id="sets"  placeholder="Sets" type="number" min="1">
+                <label for="input4" id="input4"></label>
+                    <input name="reps" id="reps"  placeholder="Reps" type="number" min="1" required>
+                <label for="input5" id="input5"></label>
+                    <input name="gymWeight" id="gymWeight"  placeholder="Weight" type="number" min="0"required>
+                    <div class="inBtns">
+                        <button type="button" id="newExercise">Sumbit</button>
+                        <button type="button" id="delete"><img src="/client/imgs/close.png"></button>
+                    </div>
+            </div>
             <div class="btns">
                 <button type="submit" id="addBtn"><img src="/client/imgs/add.png" alt=""></button>
-                <button id="deleteBtn"><img src="/client/imgs/delete.png" alt=""></button>
             </div>
         </div>
     </div>

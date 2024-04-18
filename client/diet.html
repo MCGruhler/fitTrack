@@ -6,6 +6,11 @@
     <title>Food Intake</title>
     <link rel="stylesheet" href="/client/css/userStyle.css">
     <link rel="stylesheet" href="/client/css/dietStyle.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/client/js/login.js" async></script>
+    <script src="/client/js/register.js" async></script>
+    <script src="/client/js/diet.js" async></script>
 </head>
 <body>
     <div class="nav">
@@ -21,9 +26,10 @@
             <h1>Food Intake</h1>
         </div>
         <div class="remainCal">
-            <h2>900 Calories Remaining</h2>
+            <h2 id="calsLeftHeader"></h2>
             <img src="/client/imgs/knife-and-fork-silhouette-variants.png" alt="">
         </div>
+        <div class="dateDiv"><input type="date" id="foodDate"></div>
         <div class="calTable">
             <table class="foodInput">
                 <tr class="tableTitles">
@@ -31,35 +37,22 @@
                     <th>Calories</th>
                     <th>Serving</th>
                 </tr>
-                <tr class="foodRow">
-                    <td>Potato Chips</td>
-                    <td>150 kcal</td>
-                    <td>1 bag</td>
-                </tr>
-                <tr class="foodRow">
-                    <td>Orange</td>
-                    <td>60 kcal</td>
-                    <td>1</td>
-                </tr>
-                <tr class="foodRow">
-                    <td>Protein Shake</td>
-                    <td>240 kcal</td>
-                    <td>2 scoops</td>
-                </tr>
-                <tr class="foodRow">
-                    <td>Egg</td>
-                    <td>140 kcal</td>
-                    <td>2 eggs</td>
-                </tr>
-                <tr class="foodRow">
-                    <td>Thick-Cut Bacon</td>
-                    <td>60 kcal</td>
-                    <td>1 slice</td>
-                </tr>
+                <tbody id="foodTable"></tbody>
             </table>
+            <div class="input" id="foodInput" style="display: none;">
+                <label for="input1" id="input1"></label>
+                    <input name="food" id="food"  placeholder="Food" required>
+                <label for="input2" id="input2"></label>
+                    <input name="cals" id="cals"  placeholder="Calories" required>
+                <label for="input3" id="input3"></label>
+                    <input name="serv" id="serv"  placeholder="Serving" required>
+                    <div class="inBtns">
+                        <button type="button" id="newFood">Sumbit</button>
+                        <button type="button" id="delete"><img src="/client/imgs/close.png"></button>
+                    </div>
+            </div>
             <div class="btns">
                 <button type="submit" id="addBtn"><img src="/client/imgs/add.png" alt=""></button>
-                <button id="deleteBtn"><img src="/client/imgs/delete.png" alt=""></button>
             </div>
         </div>
     </div>
