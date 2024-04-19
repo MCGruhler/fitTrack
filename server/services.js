@@ -67,6 +67,7 @@ let services = function (app) {
       email: req.body.email,
       pWord: req.body.pWord,
     };
+    console.log(req);
 
     const userArr = Array.from(Object.values(reviewUserData));
     const userEmpty = (userInfo) => userInfo != "";
@@ -105,7 +106,7 @@ let services = function (app) {
   });
 
   //getter for home --------------------------------------------------------
-  app.get("/getHome", function (req, res) {
+  app.get("/getData", function (req, res) {
     let userEmail = req.query.email;
     MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
       async function getUser() {
@@ -124,9 +125,6 @@ let services = function (app) {
 
   //input for Food --------------------------------------------------------
   app.post("/foodInput", function (req, res) {
-    //let search = { email: req.body.email };
-    //console.log(search);
-
     const reviewUserData = {
       userEmail: req.body.userEmail,
       food: req.body.food,
@@ -146,8 +144,9 @@ let services = function (app) {
   app.get("/readFood", function (req, res) {
     let userEmail = req.query.email;
     let date = req.query.date;
-    console.log(userEmail);
-    console.log(date);
+    //console.log(req);
+    //console.log(userEmail);
+    //console.log(date);
     MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
       async function getFoodData() {
         try {
@@ -164,7 +163,7 @@ let services = function (app) {
                   .send(JSON.stringify({ msg: "SUCCESS", foodData: data }));
               }
             });
-          console.log(food);
+          //console.log(food);
           return res.status(200).send(JSON.stringify({ msg: "success", food }));
         } catch (error) {}
       }
@@ -198,34 +197,85 @@ let services = function (app) {
   app.get("/readEx", function (req, res) {
     let userEmail = req.query.email;
     let date = req.query.date;
-    console.log(userEmail);
-    console.log(date);
+    //console.log(userEmail);
+    //console.log(date);
     MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
       async function getExData() {
         try {
-          console.log("im here");
+          //console.log("im here");
           const exercise = await client
             .db("fitTrackDB")
             .collection("userExercise")
             .find({ userEmail: userEmail, exDate: date })
             .toArray(function (err, data) {
               if (err) {
-                console.log("error");
+                //console.log("error");
                 return res.status(201).send(JSON.stringify({ msg: err }));
               } else {
-                console.log("success");
+                //console.log("success");
                 return res
                   .status(200)
                   .send(JSON.stringify({ msg: "SUCCESS", getExData: data }));
               }
             });
-          console.log(exercise);
+          //console.log(exercise);
           return res
             .status(200)
             .send(JSON.stringify({ msg: "success", exercise }));
         } catch (error) {}
       }
       getExData();
+    });
+  });
+
+  app.put("/updateGoal", function (req, res) {
+    let userEmail = req.body.email;
+    let newGoalWt = req.body.newGoalWt;
+    let newGoalInt = req.body.newGoalInt;
+
+    let updateData = {
+      $set: { goalWeight: newGoalWt, goalInt: newGoalInt },
+    };
+
+    MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
+      console.log(userEmail);
+      async function updateGoals() {
+        try {
+          const updating = await client
+            .db("fitTrackDB")
+            .collection("users")
+            .updateOne({ email: userEmail }, updateData);
+          console.log(updating);
+        } catch (error) {
+          console.log("error" + error);
+        }
+      }
+      updateGoals();
+    });
+  });
+
+  app.put("/updateWt", function (req, res) {
+    let userEmail = req.body.email;
+    let currWt = req.body.currWt;
+
+    let updateData = {
+      $set: { startingWeight: currWt },
+    };
+
+    MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
+      console.log(userEmail);
+      async function updateWeight() {
+        try {
+          const updating = await client
+            .db("fitTrackDB")
+            .collection("users")
+            .updateOne({ email: userEmail }, updateData);
+          console.log(updating);
+        } catch (error) {
+          console.log("error" + error);
+        }
+      }
+      updateWeight();
     });
   });
 };
