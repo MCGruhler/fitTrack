@@ -3,8 +3,8 @@ console.log(userEmail);
 let userData;
 
 $.ajax({
-  url: "http://localhost:3000/getHome",
-  //to assign outside variable
+  url: "http://localhost:3000/getData",
+  //to assign outside variable --------------------------------------------------------------------------------------------------
   async: false,
   type: "get",
   data: {
@@ -20,17 +20,19 @@ $.ajax({
   },
 });
 
-//changing home page
+//changing home page --------------------------------------------------------------------------------------------------
 document.getElementById("welcomeMsg").innerHTML =
   "Welcome " + userData.fName + "! Your Goals are:";
 
 losingOrGain();
 
+//func to find weight difference and set up total goal dif and gain or lossing -------------------------------------------------
 function getWeightDiff() {
   let weightdiff = userData.startingWeight - userData.goalWeight;
   return weightdiff;
 }
 
+//func to determine with weight diff func the goals of the person -------------------------------------------------
 function losingOrGain() {
   let weightdiff = userData.startingWeight - userData.goalWeight;
   console.log(weightdiff);
@@ -39,25 +41,25 @@ function losingOrGain() {
       "Lose " + getWeightDiff() + " Pounds";
   } else if (weightdiff < 0) {
     document.getElementById("wtMsg").innerHTML =
-      "Gain " + getWeightDiff() + " Pounds";
+      "Gain " + getWeightDiff() * -1 + " Pounds";
   } else {
     document.getElementById("wtMsg").innerHTML =
       "Maintain " + userData.startingWeight + " Pounds";
   }
 }
 
-//goal Date creation and cals per day because of switch
-
+//goal Date creation and cals per day because of switch, includes saving BMR for each int -------------------------------------------------
 function goalDateAndCalsPerDay() {
   let weightDiff = getWeightDiff();
   let cals = bmrCalc();
-  sessionStorage.setItem("bmr", cals);
   switch (userData.goalInt) {
     case "na":
       document.getElementById("projDate").innerHTML = "Maintain";
       document.getElementById("calsNeed").innerHTML =
         "Eat " + cals + " calories";
+      sessionStorage.setItem("bmr", cals);
       break;
+
     case "slowly":
       document.getElementById("projDate").innerHTML = newDate(
         daysToGoal(0.5 / 7)
@@ -69,7 +71,9 @@ function goalDateAndCalsPerDay() {
       }
       document.getElementById("calsNeed").innerHTML =
         "Eat " + cals + " calories";
+      sessionStorage.setItem("bmr", cals);
       break;
+
     case "slow":
       document.getElementById("projDate").innerHTML = newDate(
         daysToGoal(1 / 7)
@@ -81,7 +85,9 @@ function goalDateAndCalsPerDay() {
       }
       document.getElementById("calsNeed").innerHTML =
         "Eat " + cals + " calories";
+      sessionStorage.setItem("bmr", cals);
       break;
+
     case "moderately":
       document.getElementById("projDate").innerHTML = newDate(
         daysToGoal(1.5 / 7)
@@ -93,7 +99,9 @@ function goalDateAndCalsPerDay() {
       }
       document.getElementById("calsNeed").innerHTML =
         "Eat " + cals + " calories";
+      sessionStorage.setItem("bmr", cals);
       break;
+
     case "very":
       document.getElementById("projDate").innerHTML = newDate(
         daysToGoal(2 / 7)
@@ -105,6 +113,7 @@ function goalDateAndCalsPerDay() {
       }
       document.getElementById("calsNeed").innerHTML =
         "Eat " + cals + " calories";
+      sessionStorage.setItem("bmr", cals);
       break;
   }
 }
@@ -123,12 +132,13 @@ function newDate(days) {
   return currDate;
 }
 
-//converting metric to imperial funcs
+//converting metric to imperial funcs -------------------------------------------------
 function convertToMetricWeight() {
   let metricWeight = Math.round(userData.startingWeight / 2.205);
   return metricWeight;
 }
 
+//converting metric to imperial funcs -------------------------------------------------
 function convertToMetricHeight() {
   let numHt = userData.height.split("'");
   let metricHeight = numHt[0] * 12 + numHt[1] * 1;
@@ -139,13 +149,13 @@ function convertToMetricHeight() {
 convertToMetricWeight();
 convertToMetricHeight();
 
-//calc for calories needed per day
+//calc for calories needed per day -------------------------------------------------
 function bmrCalc() {
   let bmr =
     convertToMetricWeight() * 9.99 +
     convertToMetricHeight() * 6.25 -
     4.92 * userData.age;
-  bmr = bmr * 1.2;
+  bmr = bmr * 1.375;
   if (userData.sex == "m") {
     bmr = bmr + 5;
     console.log(bmr);
@@ -158,12 +168,12 @@ function bmrCalc() {
 
 bmrCalc();
 
-//switch statement function for different goals
+//switch statement function for different goals -------------------------------------------------
 function calsPerDay() {
   let weightDiff = getWeightDiff();
 }
 
-//waterintake function
+//waterintake function -------------------------------------------------
 function waterIn() {
   let water = Math.round(userData.startingWeight / 2);
   console.log(water);
