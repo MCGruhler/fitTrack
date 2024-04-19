@@ -22,7 +22,7 @@ document.getElementById("foodDate").valueAsDate = new Date();
 let date = $("#foodDate").val();
 
 //sumbit new food btn and call func --------------------------------------------------------
-$("#newExercise").click(function () {
+$("#newFood").click(function () {
   let food = $("#food").val();
   let cals = $("#cals").val();
   let serv = $("#serv").val();
