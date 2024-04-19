@@ -92,24 +92,59 @@ img{
 }
 
 .settings{
- 
     display: flex;
     flex-flow: column nowrap;
     gap: 10vh;
-
 }
-.setGoal, .setInt, .setStats{
+.setGoal, .setStats{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-start;
     gap: 1vw;
-    margin-left: 2vw;
-
-    font-size: 14px;
+    margin-left: 5vw;
+    font-size: 12px;
+    height: 15vh;
+    align-items: center;
 }
+
+#goalText{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
  
 h2{
     font-size: 18px;
+}
+#edit1, #edit2{
+    border: none;
+    background-color: white;
+    align-self: flex-start;
+}
+#edit1 > img, #edit2 >img{
+    width: 3.5vw;
+    margin-left: 10vw;
+}
+
+#edit1 > img:hover, #edit2 >img:hover{
+    filter: invert(85%) sepia(11%) saturate(262%) hue-rotate(167deg) brightness(96%) contrast(88%);
+    -webkit-filter: invert(65%) sepia(11%) saturate(262%) hue-rotate(167deg) brightness(96%) contrast(88%);
+}
+
+.cancelBtn{
+    border: none;
+    background-color: white;
+}
+.cancelBtn > img{
+    width: 2vw;
+}
+
+#logout{
+    font-size: 14px;
+    color: #5a4dc3;
+}
+#logout:hover{
+    color:#aca4e3;
 }
 
 @media screen and (max-width: 700px) {
@@ -138,6 +173,21 @@ h2{
     .article{
         left: 10vw;
         top: 10vh;
+        margin: 0;
         
+    }
+    .setGoal, .setStats{
+        margin-left: 2vw;
+    }
+
+    .setGoal >img, .setStats >img{
+        height: 8vh;
+    }
+
+    #human{
+        display: none;
+    }
+    #medals{
+        display: none;
     }
 }

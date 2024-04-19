@@ -183,4 +183,21 @@ table, tr, th,td{
 
     }
 
+    @media screen and (max-width: 700px) {
+        tr,td{
+            font-size: 12px;
+        }
+        th{
+            font-size: 14px;
+        }
+        table{
+            width: 95vw;
+        }
+
+        #addBtn{
+            height: 4vh;
+            width: 10vw;
+        }
+    }
+
 }
