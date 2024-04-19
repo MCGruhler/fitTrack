@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
     <link rel="stylesheet" href="/client/css/userStyle.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/client/js/login.js" async></script>
+    <script src="/client/js/register.js" async></script>
+    <script src="/client/js/settings.js" async></script>
 </head>
 <body>
     <div class="nav">
@@ -17,31 +22,55 @@
         <div class="header">
             <img src="/client/imgs/silhouette-person-icon.png" alt="">
             <div>
-                <h1>Welcome User!</h1>
+                <h1 id="welc">Welcome User!</h1>
                 <h2 id="logout">Logout?</h2>
             </div>
         </div>
         <div class="settings">
-            <div class="setGoal">
-                <img src="/client/imgs/medals.png" alt="">
-                <h2>Your Goal is to Lose Weight</h2>
-                <img src="/client/imgs/edit.png" alt=""style="width: 2vw; height: 2vh;">
-            </div>
-            <div class="setInt">
-                <img src="/client/imgs/runer-silhouette-running-fast.png" alt="">
-                <h2>You are losing your Goal Intensly (2 lbs per Week)</h2>
-                <img src="/client/imgs/edit.png" alt=""style="width: 2vw; height: 2vh;">
-            </div>
-            <div class="setStats">
-                <img src="/client/imgs/standing-human-body-silhouette.png" alt="">
-                <div>
-                    <h2>User's Physical Info</h2>
-                    <h3>Weight: 175 lbs</h3>
-                    <h3>Height: 5 ft 9 in</h3>
+            <div class="setGoal" id="goalsId">
+                <img src="/client/imgs/medals.png" id="medals" alt="">
+                <div id="goalText">
+                    <h2 id="goalWtText">Your Goal is to Lose 90lbs </h2>
+                    <h2 id="goalIntText">Goal Intensity: 2 lbs per Week</h2>
                 </div>
-                <img src="/client/imgs/edit.png" alt="" style="width: 2vw; height: 2vh;">
+                <button type="button" id="edit1"><img src="/client/imgs/edit.png" ></button>
             </div>
-            <div class="footer"><h4>Logout</h4></div>
+            <div class="setGoal" id="editGoals" style="display: none;">
+                <img src="/client/imgs/medals.png" alt="">
+                <div id="hiddenGoalText">
+                    <label for="input1" id="input1">New Goal Weight is: </label>
+                    <input name="newGoalWt" id="newGoalWt"  placeholder="lbs" type="number" min="0"required>
+                    <label for="input2" id="input2">New Goal Intensity is: </label>
+                    <select name="newGoalInt" id="newGoalInt" required>
+                        <option value="very">2 lbs per Week</option>
+                        <option value="moderately">1.5 lbs per Week</option>
+                        <option value="slow">1 lbs per Week</option>
+                        <option value="slowly">.5 lb per Week</option>
+                        <option value="na">Maintenance</option>
+                    </select>
+                    <button id="updateGoals" type="button">Update</button>                  
+                </div>
+                <button class="cancelBtn" id="goalsClose"><img src="/client/imgs/close.png" alt=""></button>
+            </div>
+            <div class="setStats" id = "statsId">
+                <img src="/client/imgs/standing-human-body-silhouette.png" id="human" alt="">
+                <div>
+                    <h2 id="statTitle">User's Physical Info</h2>
+                    <h3 id="userWt">Weight: </h3>
+                    <h3 id="userHt">Height: 5 ft 9 in</h3>
+                    <h3 id="userBMI">BMI: 30</h3>
+                </div>
+                <button type="button" id="edit2"><img src="/client/imgs/edit.png"></button>
+            </div>
+            <div class="setGoal" id="editStats" style="display: none;">
+                <img src="/client/imgs/standing-human-body-silhouette.png" alt="">
+                <div id="hiddenStatsText">
+                    <label for="input3" id="input3">Weight Update: </label>
+                    <input name="currWt" id="currWt"  placeholder="lbs" type="number" min="0"required>                   
+                </div>
+                <button id="updateStats">Update</button>   
+                <button class="cancelBtn" id="statsClose"><img src="/client/imgs/close.png" alt=""></button>
+            </div>
         </div>
     </div>
 </body>
