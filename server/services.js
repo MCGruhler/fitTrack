@@ -165,7 +165,9 @@ let services = function (app) {
             });
           //console.log(food);
           return res.status(200).send(JSON.stringify({ msg: "success", food }));
-        } catch (error) {}
+        } catch (error) {
+          return res.status(404).send(JSON.stringify({ msg: err }));
+        }
       }
       getFoodData();
     });
