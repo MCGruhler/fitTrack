@@ -46,7 +46,9 @@ let services = function (app) {
             .findOne(user);
           console.log(result);
           return result;
-        } catch (error) {}
+        } catch (error) {
+          return res.status(500).send(JSON.stringify({ msg: "Server Error" }));
+        }
       };
       userExsits().then((result) => {
         if (result != null) {
@@ -87,7 +89,9 @@ let services = function (app) {
             .findOne(userEmail);
           console.log(result);
           return result;
-        } catch (error) {}
+        } catch (error) {
+          return res.status(500).send(JSON.stringify({ msg: "Server Error" }));
+        }
       };
       emailFind().then((result) => {
         if (result != null) {
@@ -117,7 +121,9 @@ let services = function (app) {
             .findOne({ email: userEmail });
           console.log(user);
           return res.status(200).send(JSON.stringify({ msg: "success", user }));
-        } catch (error) {}
+        } catch (error) {
+          return res.status(500).send(JSON.stringify({ msg: "Server Error" }));
+        }
       }
       getUser();
     });
@@ -166,7 +172,7 @@ let services = function (app) {
           //console.log(food);
           return res.status(200).send(JSON.stringify({ msg: "success", food }));
         } catch (error) {
-          return res.status(404).send(JSON.stringify({ msg: err }));
+          return res.status(500).send(JSON.stringify({ msg: "Server Error" }));
         }
       }
       getFoodData();
@@ -224,7 +230,9 @@ let services = function (app) {
           return res
             .status(200)
             .send(JSON.stringify({ msg: "success", exercise }));
-        } catch (error) {}
+        } catch (error) {
+          return res.status(500).send(JSON.stringify({ msg: "Server Error" }));
+        }
       }
       getExData();
     });
@@ -249,7 +257,7 @@ let services = function (app) {
             .updateOne({ email: userEmail }, updateData);
           console.log(updating);
         } catch (error) {
-          console.log("error" + error);
+          return res.status(500).send(JSON.stringify({ msg: "Server Error" }));
         }
       }
       updateGoals();
@@ -274,7 +282,7 @@ let services = function (app) {
             .updateOne({ email: userEmail }, updateData);
           console.log(updating);
         } catch (error) {
-          console.log("error" + error);
+          return res.status(500).send(JSON.stringify({ msg: "Server Error" }));
         }
       }
       updateWeight();
