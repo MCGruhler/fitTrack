@@ -1,15 +1,10 @@
-const fs = require("fs");
-const path = require("path");
-const glob = require("glob");
-
 const MongoClient = require("mongodb").MongoClient;
-const ObjectId = require("mongodb").ObjectId;
 
 //database var
 const dbURL = "mongodb://localhost:27017/";
 
 let services = function (app) {
-  //for registration --------------------------------------------------------
+  //for registration ----------------------------------------------------------------------------------------------------------------
 
   app.post("/register", function (req, res) {
     //let search = { email: req.body.email };
@@ -28,12 +23,16 @@ let services = function (app) {
       sex: req.body.sex,
     };
 
+    //create arr for recieved obj values
     const userArr = Array.from(Object.values(reviewUserData));
+
+    //create function to check if a val is empty
     const userEmpty = (userInfo) => userInfo != "";
 
     const user = { email: req.body.email };
 
     MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
+      //check if all fields are filled, if it returns false on one return an error to client
       if (!userArr.every(userEmpty)) {
         return res.status(400).send(JSON.stringify({ msg: "err" }));
       }
@@ -63,7 +62,7 @@ let services = function (app) {
     });
   });
 
-  //for login----------------------------------------------------
+  //for login--------------------------------------------------------------------------------------------------------------------------------------------------------------------
   app.post("/login", function (req, res) {
     const reviewUserData = {
       email: req.body.email,
@@ -71,12 +70,16 @@ let services = function (app) {
     };
     console.log(req);
 
+    //create arr for recieved obj values
     const userArr = Array.from(Object.values(reviewUserData));
+
+    //create function to check if a val is empty
     const userEmpty = (userInfo) => userInfo != "";
 
     const userEmail = { email: req.body.email };
 
     MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
+      //check if all both fields are filled, if it returns false on one return an error to client
       if (!userArr.every(userEmpty)) {
         return res.status(400).send(JSON.stringify({ msg: "err" }));
       }
@@ -109,7 +112,7 @@ let services = function (app) {
     });
   });
 
-  //getter for home --------------------------------------------------------
+  //getter for home ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   app.get("/getData", function (req, res) {
     let userEmail = req.query.email;
     MongoClient.connect(dbURL, { useUnifiedTopology: true }).then((client) => {
@@ -129,7 +132,7 @@ let services = function (app) {
     });
   });
 
-  //input for Food --------------------------------------------------------
+  //input for Food ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   app.post("/foodInput", function (req, res) {
     const reviewUserData = {
       userEmail: req.body.userEmail,
@@ -146,7 +149,7 @@ let services = function (app) {
     });
   });
 
-  //getter for Food--------------------------------------------------------
+  //getter for Food------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   app.get("/readFood", function (req, res) {
     let userEmail = req.query.email;
     let date = req.query.date;
@@ -179,7 +182,7 @@ let services = function (app) {
     });
   });
 
-  //input for Exercise --------------------------------------------------------
+  //input for Exercise ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   app.post("/exInput", function (req, res) {
     const reviewUserData = {
       userEmail: req.body.userEmail,
@@ -201,7 +204,7 @@ let services = function (app) {
     });
   });
 
-  //getter for Exercise --------------------------------------------------------
+  //getter for Exercise ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   app.get("/readEx", function (req, res) {
     let userEmail = req.query.email;
     let date = req.query.date;
@@ -237,7 +240,7 @@ let services = function (app) {
       getExData();
     });
   });
-
+  //update for Goal ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   app.put("/updateGoal", function (req, res) {
     let userEmail = req.body.email;
     let newGoalWt = req.body.newGoalWt;
@@ -263,7 +266,7 @@ let services = function (app) {
       updateGoals();
     });
   });
-
+  //update for Weight ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   app.put("/updateWt", function (req, res) {
     let userEmail = req.body.email;
     let currWt = req.body.currWt;
